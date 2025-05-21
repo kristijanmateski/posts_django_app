@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="navbar bg-dark">
+    <div class="container">
+        <a href="{% url 'index' %}" class="navbar-brand" style="color: white">LAB4</a>
+        <form class="d-flex" role="search">
+            <a href="{% url 'index' %}" style="margin-left: 10px;color: white;text-decoration: none">Home</a>
+            <a href="{% url 'add_post' %}" style="margin-left: 10px;color: white;text-decoration: none">Add new product</a>
+        </form>
+    </div>
+</nav>
+<br>
+<div class="container shadow-lg p-3 mb-5 bg-body-tertiary rounded py-4" >
+    <h1 class="text-center">Add new post</h1>
+    <form action="{% url 'add_post' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+</div>
+</body>
+</html>
